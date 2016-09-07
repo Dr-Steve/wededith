@@ -16,6 +16,7 @@
 
     <!-- Custom CSS -->
     <link href="css/scrolling-nav.css" rel="stylesheet">
+    <link href="css/steve.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -140,7 +141,7 @@
                     <br \><br \><br \>
                 </div>
                 <div class="col-xs-3 text-left h4">
-                    Coctail hour in the gardens.  Feel free to walk the paths and enjoy the flowers.
+                    Cocktail hour in the gardens.  Feel free to walk the paths and enjoy the flowers.
                 </div>
             </div>
             <div class="row">
@@ -190,7 +191,7 @@
                     <br \><br \><br \>
                 </div>
                 <div class="text-left h4">
-                    Coctail hour in the gardens.  Feel free to walk the paths and enjoy the flowers.
+                    Cocktail hour in the gardens.  Feel free to walk the paths and enjoy the flowers.
                 </div>
             </div>
             <div class="row">
@@ -227,23 +228,19 @@
                         Camp Hoffman
                     </h2>
                     <p>
-                        We will have the entire place to ourselves and would love for you to stay in a cabin and spend the whole weekend. Come up as early as Saturday morning and stay through our send-off breakfast on Monday. Join us for swimming and boating on the private lake, sports and games on the field, or just some good old fashioned lounging around. We're happy to provide the roof, meals, firewood, and bug spray – all you need to bring is your sleeping bag and a smile!
+                        We will have the entire place to ourselves and would love for you to stay with us in a cabin. Come up as early as Saturday morning and stay through breakfast on Sunday. We're happy to provide the roof, firewood, and bug spray – all you need to bring is your sleeping bag and a smile!
                     </p>
                     <p>
-                        Windsor Mountain Camp has comfortable but basic facilities. All beds are singles (no one will have to sleep on a top bunk). Each bed has a mattress, but linens are not provided – so you'll need to bring your own (see packing list below). If you're traveling from far away and this is not possible, please let us know.
+                        Camp Hoffman has comfortable but basic facilities. Think Summer Camp, not 5 star hotel. All beds are singles, each bed has a mattress. Linens are not provided – so you'll need to bring your own. If you're traveling from far away and this is not possible, please let us know and we will provide for you.
                     </p>
                     <p>
-                        There are a few styles of cabins available for our guests, almost all are recently built and all are clean and dry. All have electricity (fans provided) - but be warned, cell reception might be spotty! There are shared bathroom facilities near all cabins and private showers.
+                        There are a few styles of cabins available for our guests. All are clean, dry, and have electricity. There are shared bathroom facilities in or near all cabins and private showers.  Campers are welcome to drive their car throughout the camp to drop off belongings.
                     </p>
                     <p>
-                        We will use our best judgment to create cabin assignments, but if you have a special request or conditions for staying at camp, please let us know. 
+                        We will use our best judgment to create cabin assignments, but if you have a special request or conditions for staying at camp, please let us know.  There are a few options that are less rustic!
                     </p>
                     <p>
-                        Feel free to check out the camp website to see more photos of the location and the lodging!
-                        www.windsormountain.org
-                    </p>
-                    <p>
-                        If a private room is a must, the camp experience may not be for you. 
+                        If a private room is a must, the camp experience may not be for you. There are hotels and B&B's in the area.  Remember to book early, as it is Memorial Day Weekend.
                     </p>
                 </div>
                 <!-- Hotel Options -->
@@ -292,10 +289,87 @@
             </div>
             <br/>
             <div class="row">
-                <div class="col-lg-4 col-lg-offset-8">
-                    <big> Are you coming? </big>
-                    <a class="btn btn-primary btn-lg">Yes</a>
-                    <a class="btn btn-primary btn-lg">No</a>
+                <div class="col-lg-4 col-lg-offset-8 oz">
+                    <!-- RSVP WIZARD -->
+                    <div class="wizard-spell" id="wizard-1">
+                        <big> Are you coming?</big>
+                        <a class="btn btn-primary btn-lg" 
+                           id="wizard1Yes">
+                           Yes
+                       </a>
+                        <a class="btn btn-primary btn-lg" 
+                           id="wizard1No">
+                           No
+                       </a>
+                    </div>
+
+                    <div class="wizard-spell" id="wizard-2">
+                        <big>Who is coming?</big>
+                        <br \>
+                        <label for="firstName">
+                            First Name:
+                        </label>
+                        <input type="text" id="firstName"></input>
+                        <br \>
+
+                        <label for="lastName">
+                            Last Name:
+                        </label>
+                        <input type="text" id="lastName"></input>
+                        <br \>
+
+                        <label for="additional">
+                            Additional Guests:
+                        </label>
+                        <select class="form-control" id="additional">
+                            <option value="0">+0</option>
+                            <option value="1">+1</option>
+                            <option value="2">+2</option>
+                            <option value="3">+3</option>
+                            <option value="4">+4</option>
+                            <option value="5">+5</option>
+                        </select>
+                        <br \>
+
+                        <a class="btn btn-primary btn-lg" id="wizard2Next">
+                            Next
+                        </a>
+                    </div>
+
+                    <div class="wizard-spell" id="wizard-3">
+                        <big>Are you staying overnight at <br \>Camp Hoffman?</big>
+                        <br \>
+
+                        <a class="btn btn-primary btn-lg" 
+                           id="wizard3Yes">
+                           Yes, Book me a cabin!
+                       </a>
+                        <br \>
+                        <br \>
+                        <a class="btn btn-primary btn-lg" 
+                           id="wizard3No">
+                           No, I have other plans.
+                       </a>
+                    </div>
+
+                    <div class="wizard-spell" id="wizard-4">
+                        <big>Any special requests?</big>
+                        <textarea class="form-control" 
+                                  rows="5" 
+                                  id="comments" 
+                                  placeholder="Alergies, 
+accomodation needs, 
+dance move recomendations, 
+etc."></textarea>
+                        <br \>
+                        <a class="btn btn-primary btn-lg" id="wizard4Next">
+                            Done
+                        </a>
+                    </div>
+                    <div class="wizard-spell" id="wizard-5">
+                        <big class="primary">Thank you!</big>
+                    </div>
+                    <!-- END RSVP WIZARD -->
                 </div>
             </div>
         </div>
@@ -357,6 +431,8 @@
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/scrolling-nav.js"></script>
 
+    <!-- Custom JavaScript -->
+    <script src="js/steve.js"></script>
 </body>
 
 </html>
