@@ -36,7 +36,7 @@ Pages
 */
 .intro-section {
   color:#222;
-  height: 100%;
+  min-height: 100%;
   padding-top: 150px;
   text-align: center;
   background: url(../img/crashpad.JPG) no-repeat center center fixed;
@@ -47,14 +47,14 @@ Pages
 }
 
 .about-section {
-  height: 100%;
+  min-height: 100%;
   padding-top: 150px;
   text-align: center;
   background: #eee;
 }
 
 .rsvp-section {
-  height: 100%;
+  min-height: 100%;
   padding-top: 150px;
   text-align: center;
   background: url(../img/DSCN1981.JPG) no-repeat center center fixed;
@@ -71,7 +71,7 @@ Pages
 }
 
 .itinerary-section {
-  height: 100%;
+  min-height: 100%;
   padding-top: 150px;
   text-align: center;
   color:#eee;
@@ -83,14 +83,14 @@ Pages
 }
 
 .registry-section {
-  height: 100%;
+  min-height: 100%;
   padding-top: 150px;
   text-align: center;
   background: #eee;
 }
 
 .contact-section {
-  height: 100%;
+  min-height: 100%;
   padding-top: 150px;
   text-align: center;
   color:#EEE;
