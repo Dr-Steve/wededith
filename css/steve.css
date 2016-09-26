@@ -85,6 +85,7 @@ Pages
 .registry-section {
   min-height: 100%;
   padding-top: 150px;
+  padding-bottom: 150px;
   text-align: center;
   background: #eee;
 }
