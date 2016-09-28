@@ -2,8 +2,13 @@
 Marriage... We're doin that.
 
 
+//Run Server
 npm install
-
 node server.js
 
+//Set up database
+mysqld
+mysql -u root -p < create_database.sql
+
+//Surf the webpages
 http://localhost:8080
