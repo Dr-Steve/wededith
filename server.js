@@ -1,10 +1,41 @@
-var express = require('express');
+var express    = require('express');
 var bodyParser = require('body-parser');
-var app = express();
+var mysql      = require('mysql');
+ 
+var app  = express();
 var PORT = 8080;
+
+var connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'app',
+  password : 'b4RV;JpLqs7DSt(m'
+});
 
 app.use(bodyParser.json());
 
+///////////////////////////////
+//HELPER FUNCTIONS//
+///////////////////////////////
+
+//Store rsvp results to database
+function saveRSVP(rsvp)
+{
+    var cmd = "INSERT INTO wedding_rsvp.guest " +
+        "(guestName, coming, overnight, comments) VALUES ('" +
+        rsvp.guestName               + "', " +
+        (rsvp.coming ? '1' : '0')    + ", " +
+        (rsvp.overnight ? '1' : '0') + ", '" +
+        rsvp.comments                + "' );";
+
+    connection.query(cmd, function(err, rows, fields)
+    {
+      if (err) throw err;
+    });
+}
+
+///////////////////////////////
+//ROUTING//
+///////////////////////////////
 
 //Home page
 app.get('/', function (req, res)
@@ -19,7 +50,16 @@ app.get('/index.html', function (req, res)
 //RSVP
 app.post('/rsvp', function (req, res)
 {
-    console.log(req.body);
+    //TODO: SANITIZE THIS!!!
+    try
+    {
+        saveRSVP(req.body);
+    }
+    catch(e)
+    {
+        //TODO: How should we handle errors?
+        console.log(e);
+    }
     res.send('Success');
 });
 

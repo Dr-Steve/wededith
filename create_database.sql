@@ -9,18 +9,10 @@ GRANT SELECT ON wedding_rsvp.* TO 'app'@'localhost';
 FLUSH PRIVILEGES;
 
 CREATE TABLE wedding_rsvp.guest (
-<<<<<<< HEAD
   id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-=======
-  id INT() UNSIGNED AUTO_INCREMENT PRIMARY KEY,
->>>>>>> 47064aed68d33b918afed865246961c697453871
   guestName VARCHAR(255),
   coming TINYINT(1),
   overnight TINYINT(1),
   comments VARCHAR(255),
   regDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-<<<<<<< HEAD
 );
-=======
-)
->>>>>>> 47064aed68d33b918afed865246961c697453871
