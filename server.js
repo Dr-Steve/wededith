@@ -20,14 +20,16 @@ app.use(bodyParser.json());
 //Store rsvp results to database
 function saveRSVP(rsvp)
 {
+    //Becuase we used '?' this sanitizes user input
     var cmd = "INSERT INTO wedding_rsvp.guest " +
-        "(guestName, coming, overnight, comments) VALUES ('" +
-        rsvp.guestName               + "', " +
-        (rsvp.coming ? '1' : '0')    + ", " +
-        (rsvp.overnight ? '1' : '0') + ", '" +
-        rsvp.comments                + "' );";
+        "(guestName, coming, overnight, comments) VALUES ( ?, ?, ?, ? );";
 
-    connection.query(cmd, function(err, rows, fields)
+    connection.query(cmd,
+        [rsvp.guestName,
+        ( rsvp.coming ? '1' : '0' ),
+        ( rsvp.overnight ? '1' : '0' ),
+        rsvp.comments ],
+        function(err, rows, fields)
     {
       if (err) throw err;
     });
@@ -50,7 +52,6 @@ app.get('/index.html', function (req, res)
 //RSVP
 app.post('/rsvp', function (req, res)
 {
-    //TODO: SANITIZE THIS!!!
     try
     {
         saveRSVP(req.body);
