@@ -20,7 +20,38 @@ function ajaxSuccess()
 
 function ajaxError()
 {
-  console.log("ERROR");
+   $('#wizard-1').animate({
+        marginLeft: '-700px'
+    }, 100, function() {
+
+    });
+
+   $('#wizard-2').animate({
+        marginLeft: '-700px'
+    }, 100, function() {
+
+    });
+
+   $('#wizard-3').animate({
+        marginLeft: '-700px'
+    }, 100, function() {
+
+    });
+
+   $('#wizard-4').animate({
+        marginLeft: '-700px'
+    }, 100, function() {
+
+    });
+   $('#wizard-5').animate({
+        marginLeft: '-700px'
+    }, 100, function() {
+
+    });
+
+    $('#wizard-6').animate({
+        marginLeft: '0'
+    }, 100, function() {});
 }
 
 function onSubmit()
