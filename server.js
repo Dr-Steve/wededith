@@ -3,7 +3,13 @@ var bodyParser = require('body-parser');
 var mysql      = require('mysql');
  
 var app  = express();
-var PORT = 8080;
+
+//Uncomment this for local testing (or define env variable PORT=8080
+//var PORT = 8080;
+
+// when on Heroku, port will be exported to an environment variable
+// and available as process.env.PORT
+var PORT = process.env.PORT || CONFIG.port;
 
 var connection = mysql.createConnection({
   host     : 'localhost',
