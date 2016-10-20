@@ -4,6 +4,7 @@
   "description": "Marriage... We're doin that.",
   "main": "server.js",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "httpdispatcher": "^1.0.0",
     "mysql": "^2.11.1"
