@@ -14,7 +14,7 @@ var PORT = process.env.PORT || CONFIG.port;
 var connection = mysql.createConnection({
   host     : 'us-cdbr-iron-east-04.cleardb.net',
   user     : 'bb01b428ddb924',
-  password : '00f784c7'
+  password : '00f784c7',
   database : 'heroku_d7e34d20a0b9521'
 });
 
