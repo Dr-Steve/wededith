@@ -12,9 +12,10 @@ var app  = express();
 var PORT = process.env.PORT || CONFIG.port;
 
 var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'app',
-  password : 'b4RV;JpLqs7DSt(m'
+  host     : 'us-cdbr-iron-east-04.cleardb.net',
+  user     : 'bb01b428ddb924',
+  password : '00f784c7'
+  database : 'heroku_d7e34d20a0b9521'
 });
 
 app.use(bodyParser.json());
@@ -27,7 +28,7 @@ app.use(bodyParser.json());
 function saveRSVP(rsvp)
 {
     //Becuase we used '?' this sanitizes user input
-    var cmd = "INSERT INTO wedding_rsvp.guest " +
+    var cmd = "INSERT INTO guest " +
         "(guestName, coming, overnight, comments) VALUES ( ?, ?, ?, ? );";
 
     connection.query(cmd,

@@ -1,12 +1,12 @@
 
-CREATE DATABASE wedding_rsvp;
+-- CREATE DATABASE wedding_rsvp;
 
-CREATE USER 'app'@'localhost' IDENTIFIED BY 'b4RV;JpLqs7DSt(m';
+-- CREATE USER 'app'@'localhost' IDENTIFIED BY 'b4RV;JpLqs7DSt(m';
 
-GRANT INSERT ON wedding_rsvp.* TO 'app'@'localhost';
-GRANT SELECT ON wedding_rsvp.* TO 'app'@'localhost';
+-- GRANT INSERT ON wedding_rsvp.* TO 'app'@'localhost';
+-- GRANT SELECT ON wedding_rsvp.* TO 'app'@'localhost';
 
-FLUSH PRIVILEGES;
+-- FLUSH PRIVILEGES;
 
 CREATE TABLE wedding_rsvp.guest (
   id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
