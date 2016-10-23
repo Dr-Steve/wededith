@@ -11,12 +11,14 @@ var app  = express();
 // and available as process.env.PORT
 var PORT = process.env.PORT || CONFIG.port;
 
-var connection = mysql.createConnection({
+var dbConfig = {
   host     : 'us-cdbr-iron-east-04.cleardb.net',
   user     : 'bb01b428ddb924',
   password : '00f784c7',
   database : 'heroku_d7e34d20a0b9521'
-});
+}
+
+var connection = mysql.createConnection(dbConfig);
 
 app.use(bodyParser.json());
 
@@ -77,3 +79,28 @@ app.listen(PORT, function ()
 {
   console.log('app listening on port' + 8080);
 });
+
+
+//Handle mysql server disconnect.  Found this on stackoverflow: http://stackoverflow.com/questions/20210522/nodejs-mysql-error-connection-lost-the-server-closed-the-connection
+function handleDisconnect() {
+  connection = mysql.createConnection(dbConfig); // Recreate the connection, since
+                                                  // the old one cannot be reused.
+
+  connection.connect(function(err) {              // The server is either down
+    if(err) {                                     // or restarting (takes a while sometimes).
+      console.log('error when connecting to db:', err);
+      setTimeout(handleDisconnect, 2000); // We introduce a delay before attempting to reconnect,
+    }                                     // to avoid a hot loop, and to allow our node script to
+  });                                     // process asynchronous requests in the meantime.
+                                          // If you're also serving http, display a 503 error.
+  connection.on('error', function(err) {
+    console.log('db error', err);
+    if(err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
+      handleDisconnect();                         // lost due to either server restart, or a
+    } else {                                      // connnection idle timeout (the wait_timeout
+      throw err;                                  // server variable configures this)
+    }
+  });
+}
+
+handleDisconnect();
