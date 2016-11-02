@@ -7,8 +7,22 @@ $(window).scroll(function() {
     }
 });
 
-//jQuery for page scrolling feature - requires jQuery Easing plugin
-$(function() {
+//Sorry about this nasty looking bit, on a time crunch
+//This applies different classes and click events based on screen size
+//so that if the screen is small and you click on a menu item it closes
+//the menu.
+$(window).on('resize', function() {
+    if($(window).width() > 768) {
+        $('.menu-button').addClass('page-scrollhack');
+        $('.menu-button').removeClass('page-scroll');
+    }else{
+        $('.menu-button').addClass('page-scroll');
+        $('.menu-button').removeClass('page-scrollhack');
+    }
+
+    $('a.page-scrollhack').unbind('click');
+    $('a.page-scroll').unbind('click');
+
     $('a.page-scroll').bind('click', function(event) {
         $('.navbar-toggle').click();
         var $anchor = $(this);
@@ -17,10 +31,7 @@ $(function() {
         }, 1500, 'easeInOutExpo');
         event.preventDefault();
     });
-});
 
-//jQuery for page scrolling feature - requires jQuery Easing plugin
-$(function() {
     $('a.page-scrollhack').bind('click', function(event) {
         var $anchor = $(this);
         $('html, body').stop().animate({
@@ -29,3 +40,5 @@ $(function() {
         event.preventDefault();
     });
 });
+//Fire this on start
+$(function() { $(window).resize(); });
