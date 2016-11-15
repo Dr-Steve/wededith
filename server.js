@@ -5,11 +5,11 @@ var mysql      = require('mysql');
 var app  = express();
 
 //Uncomment this for local testing (or define env variable PORT=8080
-//var PORT = 8080;
+var PORT = 8080;
 
 // when on Heroku, port will be exported to an environment variable
 // and available as process.env.PORT
-var PORT = process.env.PORT || CONFIG.port;
+//var PORT = process.env.PORT || CONFIG.port;
 
 var dbConfig = {
   host     : 'us-cdbr-iron-east-04.cleardb.net',
@@ -18,7 +18,7 @@ var dbConfig = {
   database : 'heroku_d7e34d20a0b9521'
 }
 
-var connection = mysql.createConnection(dbConfig);
+//var connection = mysql.createConnection(dbConfig);
 
 app.use(bodyParser.json());
 
@@ -103,4 +103,4 @@ function handleDisconnect() {
   });
 }
 
-handleDisconnect();
+//handleDisconnect();
